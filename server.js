@@ -13,3 +13,8 @@ const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 //App Setting the view engine of express application to use handlebars
 app.set('view engine', 'handlebars');
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
+  
